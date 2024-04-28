@@ -1,0 +1,143 @@
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+
+.container-login {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.login-form {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.login-form-title{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-size: 36px;
+    color: black;
+    font-weight: bold;
+}
+
+.wrap-input {
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+.wrap-input > span {
+    display: block;
+    color: black;
+    margin-bottom: 5px; 
+}
+
+.wrap-input > .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0000009f;
+    border-radius: 5px;
+}
+
+.login-form-button-forgot {
+    text-align: right;
+}
+
+.login-form-button-forgot > .forgot-password {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-form-button {
+    text-align: center;
+}
+
+.login-form-button > .login-form-btn {
+    padding: 5px 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider {
+    display: inline-block;
+    width: 50px; 
+    height: 2px;
+    background-color: #000;
+}
+
+.or-text {
+    font-size: 16px;
+    color: black;
+    margin: 0 10px; 
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.google-btn,
+.facebook-btn {
+    margin: 0 10px; 
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid #000000;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.google-btn > img,
+.facebook-btn > img{
+    width: 30px;
+    height: 30px;
+}
+
+.login-form-button-register {
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.register {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.register > span > span{
+    font-weight: bold;
+    color: red;
+}
