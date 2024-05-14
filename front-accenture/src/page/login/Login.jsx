@@ -1,6 +1,8 @@
-import './index.css';
+import styles from './index.css'
 import googleIcon from '../../assets/google-img.svg'
 import facebookIcon from '../../assets/facebook-img.svg'
+import { Button } from '../../components/Button';
+import { Link } from 'react-router-dom';
 
 function Login() {
     return (
@@ -11,15 +13,12 @@ function Login() {
                         <span className='title'>Acesse sua conta</span>
                     </div>
 
-                    <div className='wrap-input'>
-                        <span>Login</span>
-                        <input className='input' type='email' placeholder='Digite seu email' />
-                    </div>
+                    <Button
+                            divClassName='wrap-input' classInputName='input' label='login:' type='input' placeholder='Digite seu email'></Button>
 
-                    <div className='wrap-input'>
-                        <span>Senha</span>
-                        <input className='input' type='password' placeholder='Digite sua senha' />
-                    </div>
+                    
+                        <Button divClassName='wrap-input' label='senha:'classInputName='input'type='password' placeholder='Digite sua senha'></Button>
+                    
 
                     <div className='login-form-button-forgot'>
                         <button className='forgot-password'>
@@ -28,9 +27,9 @@ function Login() {
                     </div>
 
                     <div className='login-form-button'>
-                        <button className='login-form-btn'>
-                            Continuar
-                        </button>
+                        <input value='Continuar' type='button'className='login-form-btn'/>
+                            
+                        
                     </div>
 
                     <div className='or-divider'>
@@ -50,7 +49,7 @@ function Login() {
 
                     <div className='login-form-button-register'>
                         <button className='register'>
-                            <span>Não tem conta? <span>Cadastre aqui!</span></span>
+                            <span>Não tem conta?</span> <Link to={'/singin'} >Cadastre aqui!</Link>
                         </button>
                     </div>
 

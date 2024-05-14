@@ -1,0 +1,62 @@
+.divMain{
+    padding: 5% 3vh 10vh 15vh;
+}
+
+.divCards{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.divMainCard{
+    display: flex;
+    width: 22%;
+    background-color: rgba(128, 128, 128, 0.303);
+    margin: 1vh;
+    border-radius: 5px;
+    border: solid 1px #000000;
+
+}
+.divImg{
+   
+}
+.imgLoja{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin-top: 50%;
+}
+
+.divData{
+
+}
+
+.divButtons{
+    display: flex;
+    width: 95%;
+    margin: 3vw;
+}
+
+.input{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #0000009f;
+    border-radius: 5px;
+    
+}
+.inputBtn{
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #fff;
+    background-color: blueviolet;
+    color: #ffff;
+    border-radius: 5px;
+}
+.inputBtn:hover{
+    color: blueviolet;
+    background-color: #ffff;
+    border: 1px solid #000000;
+}
+.divButton{
+    width: 80%;
+}
