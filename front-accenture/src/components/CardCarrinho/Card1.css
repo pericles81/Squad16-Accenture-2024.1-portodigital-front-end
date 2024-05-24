@@ -1,0 +1,19 @@
+.divCard1{
+    display: flex;
+    background-color: rgba(181, 181, 181, 0.458);
+
+    margin-top: 2vh;
+}
+
+.divContentCard1{
+    margin-left: 12vw;
+    margin-top: 5vh;
+}
+
+.divImgCard1 {
+    width: 60%;
+    display: flex;
+}
+.divImgCard1 img{
+    width: 30%;
+}

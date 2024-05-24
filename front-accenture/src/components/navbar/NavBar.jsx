@@ -19,7 +19,7 @@ if(page == '/login' || page == '/singin'){  return (
       </div>
     </nav>
     )
-  }else if(page == '/lojas' || page == '/'){
+  }else if(page == '/lojas' || page == '/' || page== '/carrinho'){
     return (
       <nav className="navbar">
         <div className="logo">

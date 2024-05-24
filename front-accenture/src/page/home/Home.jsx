@@ -10,7 +10,7 @@ export const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/clientes');
+                const response = await axios.get('http://localhost:8080/produtos');
                 setData(response.data);
                 console.log(data);
             } catch (error) {
@@ -40,9 +40,9 @@ export const Home = () => {
                                 img='img'
                                 divImg='divImg'
                                 h2={e.nome}
-                                text1={e.email}
-                            
-                                text3
+                                text1={e.preco}
+                                text2={e.quantidade}
+                                text3={e.descricao}
                             ></Card>
                         )
                     })}
