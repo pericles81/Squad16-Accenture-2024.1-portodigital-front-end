@@ -8,14 +8,14 @@ function Navbar() {
   const page = location.pathname
 
 
-if(page == '/login' || page == '/singin'){  return (
+if(page == '/login' || page == '/cadastroClientes' || page == '/seleCad'){  return (
     <nav className="navbar">
       <div className="logo">
         <img alt="Logo" />
       </div>
       <div className="links">
         <Link to="/login">Login</Link>
-        <Link to="/singin">Cadastrar-se</Link>
+        <Link to="/seleCad">Cadastrar-se</Link>
       </div>
     </nav>
     )

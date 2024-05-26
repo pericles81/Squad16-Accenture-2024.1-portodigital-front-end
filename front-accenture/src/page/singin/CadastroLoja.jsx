@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
-import styles from './Produto.css'
+import styles from './Singin.css'
 import { Button } from '../../components/Button'
 import { Link } from 'react-router-dom'
+import { InputButton } from '../../components/InputButton'
 import axios from 'axios'
-const categorias = ['', 'Cozinha', 'Banheiro', 'Acessorios', 'Lembranças', 'Roupas para bebês', 'Roupas', 'Brechó']
-export const Produto = () => {
+
+export const CadastroLojas = () => {
 
     const [emptyValue, setEmptyValue] = useState(false)
 
     const [form, setForm] = useState({
         nome: "",
-        preco: "",
-        quantidade: "",
-        descricao: "",
-        clienteId: ""
+        endereco: "",
+        senha: "",
+        especialidade: "",
+        cnpj: ""
     })
 
     const handleChange = (e) => {
@@ -31,7 +32,7 @@ export const Produto = () => {
 
     const handlePostRequest = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/produtos/cliente/21', form);
+            const response = await axios.post('http://localhost:8080/lojas', form);
             console.log('Response from server:', response.data);
         } catch (error) {
             console.error('Error making POST request:', error);
@@ -43,74 +44,60 @@ export const Produto = () => {
             <div className='container-login'>
                 <form className='login-form' onSubmit={(e) => { handleSubmit(e) }}>
                     <div className='login-form-title'>
-                        <span className='title'>Agora nos informe os dados do produto</span>
+                        <span className='title'>Cadastre-se aqui</span>
                     </div>
-
-                    <div>
-                        <label htmlFor="categoria">O que você quer anunciar?</label>
-                        <select onChange={(e) => handleChange(e)} name="categoria">
-                            {categorias.map((e) => {
-                                return (
-                                    <option>{e}</option>
-                                )
-                            })}
-                        </select>
-                    </div>
-                    <>
-                        <div> {emptyValue && form['categoria'] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ''}</div>
-                    </>
 
                     <Button
                         divClassName='wrap-input divButton'
                         classInputName='input'
-                        label='Nome do produto:'
-                        placeholder='Digite o nome do produto'
+                        label='Como sua loja se chama'
+                        placeholder='Digite o nome da loja:'
                         id='nome'
                         name='nome'
                         onBlur={(e) => handleChange(e)}
                     ></Button>
-                    <>{emptyValue && form["nome"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+                    <>{emptyValue && form["nome"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
 
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
-                        label='Preço:'
-                        placeholder='00,00'
-                        id='preco'
+                        label='Endereço da loja:'
+                        placeholder='Ex.: Rua Jose de Alencar 522 - Boa vista-Recife'
+                        id='endereco'
+                        name='endereco'
+                        onBlur={(e) => handleChange(e)}
+                    ></Button>
+                    <>{emptyValue && form["endereco"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
+                    <Button
+                        classInputName='input' divClassName='wrap-input divButton'
+                        label='Digite sua senha:'
+                        placeholder='Crie uma senha forte!'
+                        id='senha'
+                        name='senha'
+                        onBlur={(e) => handleChange(e)}
+                    ></Button>
+                    <>{emptyValue && form["senha"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
+                    <Button
+                        classInputName='input' divClassName='wrap-input divButton'
+                        label='Especialidade da loja:'
+                        placeholder='Qual o segmento da sua loja'
+                        id='especialidade'
+                        name='especialidade'
+                        onBlur={(e) => handleChange(e)}
+                    ></Button>
+                    <>{emptyValue && form["especialidade"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
+                    <Button
+                        classInputName='input' divClassName='wrap-input divButton'
+                        label='CPF/CNPJ:'
+                        placeholder='Apenas números'
+                        id='cnpj'
+                        name='cnpj'
                         type='number'
-                        name='preco'
                         onBlur={(e) => handleChange(e)}
                     ></Button>
-                    <>{emptyValue && form["preco"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='Quantidade'
-                        placeholder='Digite quantos produtos serão anunciados'
-                        id='quantidade'
-                        name='quantidade'
-                        type='number'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["quantidade"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='Descrição'
-                        placeholder='Digite a descrição do produto'
-                        id='descricao'
-                        name='descricao'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["descricao"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='clientId'
-                        placeholder='Digite a descrição do produto'
-                        id='clienteId'
-                        name='clienteId'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["clienteId"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+                    <>{emptyValue && form["cnpj"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
 
 
                     <Button
@@ -118,7 +105,7 @@ export const Produto = () => {
                         classInputName='login-form-btn'
                         type='submit'
                         value='Confirmar'
-                        placeholder='kkkk'
+
                         id='postSingin'
                         onClick={handlePostRequest}
                     ></Button>

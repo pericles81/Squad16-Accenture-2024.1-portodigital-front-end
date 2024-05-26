@@ -1,0 +1,15 @@
+.divMainSeleCad{
+    margin-top: 30vh;
+    display: flex;
+    justify-content: space-around;
+}
+.cu :hover{
+    background-color: blueviolet;
+    color: aliceblue;
+}
+
+
+.imgSeleCad{
+    width: 15vw;
+    height: 15vh;
+}

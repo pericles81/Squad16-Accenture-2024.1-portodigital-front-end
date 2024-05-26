@@ -2,12 +2,15 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './page/login/Login'
 import Navbar from './components/navbar/NavBar';
-import { Singin } from './page/singin/Singin';
+import { CadastroClientes } from './page/singin/CadastroClientes';
 import { Lojas } from './page/Shoppins/Lojas';
 import { Home } from './page/home/Home';
 import { Produto } from './page/produto/Produto';
 import { Carrinho } from './page/carrinho/Carrinho';
 import { Pagamento } from './page/pagamento/Pagamento';
+import { SelecionarCadastro } from './page/selecionarCadastro/SelecionarCadastro';
+import { CadastroLojas } from './page/singin/CadastroLoja';
+import { CadastroEntregadores } from './page/singin/CadastroEntregadores';
 
 function App() {
   return (
@@ -16,12 +19,15 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/login" Component={Login} />
-          <Route path="/singin" Component={Singin} />
+          <Route path="/cadastroClientes" Component={CadastroClientes} />
+          <Route path="/cadastroLojas" Component={CadastroLojas} />
+          <Route path="/cadastroEntregador" Component={CadastroEntregadores} />
           <Route path="/lojas" Component={Lojas} />
           <Route path="/" Component={Home} />
           <Route path="/produtos" Component={Produto} />
           <Route path="/carrinho" Component={Carrinho} />
           <Route path="/pagamento" Component={Pagamento} />
+          <Route path="/seleCad" Component={SelecionarCadastro} />
         </Routes>
     </BrowserRouter>
     </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './styles/Button.css'
 export const Button = (props) => {
   return (
     <div className={props.divClassName}>

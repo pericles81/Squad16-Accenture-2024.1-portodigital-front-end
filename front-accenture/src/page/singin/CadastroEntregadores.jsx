@@ -4,15 +4,18 @@ import { Button } from '../../components/Button'
 import { Link } from 'react-router-dom'
 import { InputButton } from '../../components/InputButton'
 import axios from 'axios'
+import App from './../../App';
 
-export const Singin = () => {
-
+export const CadastroEntregadores = () => {
+    const tipoVeiculo = ['', 'Carro', 'Moto', 'Bicicleta']
     const [emptyValue, setEmptyValue] = useState(false)
 
     const [form, setForm] = useState({
+        email: "",
         nome: "",
+        placa: "",
         senha: "",
-        email: ""
+        veiculo: "",
     })
 
     const handleChange = (e) => {
@@ -30,13 +33,13 @@ export const Singin = () => {
 
     const handlePostRequest = async () => {
         try {
-          const response = await axios.post('http://localhost:8080/clientes', form);
-          console.log('Response from server:', response.data);
+            const response = await axios.post('http://localhost:8080/entregador', form);
+            console.log('Response from server:', response.data);
         } catch (error) {
-          console.error('Error making POST request:', error);
+            console.error('Error making POST request:', error);
         }
-      };
-    
+    };
+
     return (
         <div className='container'>
             <div className='container-login'>
@@ -45,71 +48,69 @@ export const Singin = () => {
                         <span className='title'>Cadastre-se aqui</span>
                     </div>
 
-                    <div className='divRadios'>
-
-                        <InputButton
-                            type='radio'
-                            id='entregador'
-                            name='tipoRegistro'
-                            kkk='kkk'
-                            htmlFor='entregador'
-                            label='Entregador'
-                            onBlur={(e) => handleChange(e)}
-                        >
-                        </InputButton>
-
-                        <InputButton
-                            kkk='kkk'
-                            label='Vendedor'
-                            htmlFor='vendedor'
-                            id='vendedor'
-                            name='tipoRegistro'
-                            type='radio'>
-                        </InputButton>
-                    </div>
-                    
                     <Button
                         divClassName='wrap-input divButton'
                         classInputName='input'
                         label='Como você quer ser chamado?'
-                        placeholder='Digite seu nome/nome da loja'
+                        placeholder='Digite seu nome'
                         id='nome'
                         name='nome'
                         onBlur={(e) => handleChange(e)}
                     ></Button>
-                    <>{emptyValue && form["nome"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+                    <>{emptyValue && form["nome"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
-                        label='Endereço da loja'
-                        placeholder='Ex.: Rua Jose de Alencar 522 - Boa vista-Recife'
-                        id='senha'
-                        name='senha'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["senha"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='CPF/CNPJ:'
-                        placeholder='Apenas números'
+                        label='Digite seu email'
+                        placeholder='example@example.com'
                         id='email'
                         name='email'
                         onBlur={(e) => handleChange(e)}
                     ></Button>
-                    <>{emptyValue && form["email"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-
-                    {/* <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='Senha:'
-                        placeholder='*******'
-                        id='username'
-                    ></Button>
+                    <>{emptyValue && form["email"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
 
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
-                        label='Confirme sua senha:'
-                        placeholder='*******'
-                        id='username'
-                    ></Button> */}
+                        label='Digite seu email'
+                        placeholder='example@example.com'
+                        id='email'
+                        name='email'
+                        onBlur={(e) => handleChange(e)}
+                    ></Button>
+                    <>{emptyValue && form["email"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
+                    <div className='divButton'>
+                        <label htmlFor="categoria">Qual seu veiculo?</label>
+                        <select onChange={(e) => handleChange(e)} name="veiculo">
+                            {tipoVeiculo.map((e) => {
+                                return (
+                                    <option>{e}</option>
+                                )
+                            })}
+                        </select>
+                    </div>
+                    <>{emptyValue && form["veiculo"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
+                    <Button
+                        classInputName='input' divClassName='wrap-input divButton'
+                        label='Digite a placa do seu veiculo:'
+                        placeholder='Se o veiculo tiver placa digite aqui'
+                        id='placa'
+                        name='placa'
+                        onBlur={(e) => handleChange(e)}
+                    ></Button>
+                    <>{emptyValue && form["placa"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
+                    <Button
+                        classInputName='input' divClassName='wrap-input divButton'
+                        label='Digite sua senha:'
+                        placeholder='Crie uma senha forte!'
+                        id='senha'
+                        name='senha'
+                        onBlur={(e) => handleChange(e)}
+                    ></Button>
+                    <>{emptyValue && form["senha"] === "" ? <span className='valide divButton'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+
 
                     <Button
                         divClassName='login-form-button'
@@ -127,7 +128,7 @@ export const Singin = () => {
                         </button>
                     </div>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
