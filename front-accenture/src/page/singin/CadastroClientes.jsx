@@ -4,8 +4,12 @@ import { Button } from '../../components/Button'
 import { Link } from 'react-router-dom'
 import { InputButton } from '../../components/InputButton'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+
 
 export const CadastroClientes = () => {
+    const navigate = useNavigate();
 
     const [emptyValue, setEmptyValue] = useState(false)
 
@@ -32,6 +36,8 @@ export const CadastroClientes = () => {
         try {
             const response = await axios.post('http://localhost:8080/clientes', form);
             console.log('Response from server:', response.data);
+            setForm({ nome: "", senha: "", email: "" });
+            navigate('/login')
         } catch (error) {
             console.error('Error making POST request:', error);
         }
@@ -58,8 +64,9 @@ export const CadastroClientes = () => {
 
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
-                        label='Endereço da loja'
-                        placeholder='Ex.: Rua Jose de Alencar 522 - Boa vista-Recife'
+                        label='Digite sua senha'
+                        placeholder='*********'
+                        type='password'
                         id='senha'
                         name='senha'
                         onBlur={(e) => handleChange(e)}
@@ -68,8 +75,8 @@ export const CadastroClientes = () => {
 
                     <Button
                         classInputName='input' divClassName='wrap-input divButton'
-                        label='CPF/CNPJ:'
-                        placeholder='Apenas números'
+                        label='Email:'
+                        placeholder='exemplo@email.com'
                         id='email'
                         name='email'
                         onBlur={(e) => handleChange(e)}
@@ -83,7 +90,6 @@ export const CadastroClientes = () => {
                         classInputName='login-form-btn'
                         type='submit'
                         value='Confirmar'
-                        placeholder='kkkk'
                         id='postSingin'
                         onClick={handlePostRequest}
                     ></Button>

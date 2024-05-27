@@ -5,8 +5,12 @@ import { Link } from 'react-router-dom'
 import { InputButton } from '../../components/InputButton'
 import axios from 'axios'
 import App from './../../App';
+import { useNavigate } from 'react-router-dom'
+
 
 export const CadastroEntregadores = () => {
+    const navigate = useNavigate();
+
     const tipoVeiculo = ['', 'Carro', 'Moto', 'Bicicleta']
     const [emptyValue, setEmptyValue] = useState(false)
 
@@ -35,6 +39,14 @@ export const CadastroEntregadores = () => {
         try {
             const response = await axios.post('http://localhost:8080/entregador', form);
             console.log('Response from server:', response.data);
+            setForm({
+                email: "",
+                nome: "",
+                placa: "",
+                senha: "",
+                veiculo: "",
+            });
+            navigate('/login')
         } catch (error) {
             console.error('Error making POST request:', error);
         }
