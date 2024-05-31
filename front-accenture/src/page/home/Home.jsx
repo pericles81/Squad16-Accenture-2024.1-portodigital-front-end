@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
+import { getItem,setItem } from '../../services/LocalStorageCarrinho';
 import styles from './Home.css'
 export const Home = () => {
     const [data, setData] = useState([]);
