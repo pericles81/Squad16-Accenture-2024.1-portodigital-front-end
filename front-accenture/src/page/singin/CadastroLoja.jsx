@@ -4,8 +4,11 @@ import { Button } from '../../components/Button'
 import { Link } from 'react-router-dom'
 import { InputButton } from '../../components/InputButton'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export const CadastroLojas = () => {
+    const navigate = useNavigate();
+
 
     const [emptyValue, setEmptyValue] = useState(false)
 
@@ -34,6 +37,14 @@ export const CadastroLojas = () => {
         try {
             const response = await axios.post('http://localhost:8080/lojas', form);
             console.log('Response from server:', response.data);
+            setForm({
+                nome: "",
+                endereco: "",
+                senha: "",
+                especialidade: "",
+                cnpj: ""
+            });
+            navigate('/login')
         } catch (error) {
             console.error('Error making POST request:', error);
         }
