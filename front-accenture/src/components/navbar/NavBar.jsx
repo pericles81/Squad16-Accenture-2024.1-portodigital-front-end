@@ -28,9 +28,8 @@ if(page == '/login' || page == '/cadastroClientes' || page == '/seleCad'){  retu
         <div className="links">
           <Link to="/lojas">Lojas</Link>
           <Link to="/">Meus Anúncios</Link>
-          <Link to="/singin">Olá Usuário</Link>
           <Link to="/carrinho">Carrinho</Link>
-          <Link to="/singin"><Button type='button'
+          <Link to="/seleCad"><Button type='button'
           value='Anunciar'></Button></Link>
           
         </div>
