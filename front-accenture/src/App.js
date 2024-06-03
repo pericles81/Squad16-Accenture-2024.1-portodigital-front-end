@@ -5,13 +5,14 @@ import Navbar from './components/navbar/NavBar';
 import { CadastroClientes } from './page/singin/CadastroClientes';
 import { Lojas } from './page/Shoppins/Lojas';
 import { Home } from './page/home/Home';
-import { Produto } from './page/produto/Produto';
+import { CadastroProduto } from './page/produto/CadastroProduto';
 import { Carrinho } from './page/carrinho/Carrinho';
 import { Pagamento } from './page/pagamento/Pagamento';
 import { SelecionarCadastro } from './page/selecionarCadastro/SelecionarCadastro';
 import { CadastroLojas } from './page/singin/CadastroLoja';
 import { CadastroEntregadores } from './page/singin/CadastroEntregadores';
 import { Loja } from './page/Shoppins/Loja';
+import { Produtos } from './page/produto/Produtos';
 
 function App() {
   return (
@@ -25,8 +26,9 @@ function App() {
           <Route path="/cadastroEntregador" Component={CadastroEntregadores} />
           <Route path="/lojas" Component={Lojas} />
           <Route path="/" Component={Home} />
-          <Route path="/loja/:id" element={<Loja />} />
-          <Route path="/produtos" Component={Produto} />
+          <Route path="/loja/:id" Component={Loja} />
+          <Route path="/produtos/:id" Component={Produtos} />
+          <Route path="/produto" Component={CadastroProduto} />
           <Route path="/carrinho" Component={Carrinho} />
           <Route path="/pagamento" Component={Pagamento} />
           <Route path="/seleCad" Component={SelecionarCadastro} />

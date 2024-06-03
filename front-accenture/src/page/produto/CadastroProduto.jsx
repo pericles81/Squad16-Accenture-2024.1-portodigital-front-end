@@ -4,7 +4,7 @@ import { Button } from '../../components/Button'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 const categorias = ['', 'Cozinha', 'Banheiro', 'Acessorios', 'Lembranças', 'Roupas para bebês', 'Roupas', 'Brechó']
-export const Produto = () => {
+export const CadastroProduto = () => {
 
     const [emptyValue, setEmptyValue] = useState(false)
 
@@ -13,7 +13,6 @@ export const Produto = () => {
         preco: "",
         quantidade: "",
         descricao: "",
-        clienteId: ""
     })
 
     const handleChange = (e) => {
@@ -102,16 +101,6 @@ export const Produto = () => {
                         onBlur={(e) => handleChange(e)}
                     ></Button>
                     <>{emptyValue && form["descricao"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-                    <Button
-                        classInputName='input' divClassName='wrap-input divButton'
-                        label='clientId'
-                        placeholder='Digite a descrição do produto'
-                        id='clienteId'
-                        name='clienteId'
-                        onBlur={(e) => handleChange(e)}
-                    ></Button>
-                    <>{emptyValue && form["clienteId"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
-
 
                     <Button
                         divClassName='login-form-button'
