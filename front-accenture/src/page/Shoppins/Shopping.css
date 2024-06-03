@@ -8,6 +8,10 @@
 
 }
 
+.divCardLoja{
+    width: 100%;
+}
+
 .divMainCard{
     display: flex;
     width: 22%;

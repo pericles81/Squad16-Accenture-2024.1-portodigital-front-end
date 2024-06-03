@@ -19,7 +19,7 @@ if(page == '/login' || page == '/cadastroClientes' || page == '/seleCad'){  retu
       </div>
     </nav>
     )
-  }else if(page == '/lojas' || page == '/' || page== '/carrinho'){
+  }else if(page == '/lojas' || page == '/' || page== '/carrinho' || '/loja/:id'){
     return (
       <nav className="navbar">
         <div className="logo">

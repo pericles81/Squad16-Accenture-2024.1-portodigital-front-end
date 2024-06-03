@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Card } from '../../components/Card';
 import styles from './Shopping.css';
 import { Button } from './../../components/Button';
+import { Link } from 'react-router-dom';
 
 export const Lojas = () => {
     const [data, setData] = useState([]);
@@ -21,7 +22,7 @@ export const Lojas = () => {
 
     return (
         <div className='divMain'>
-            
+
             <div className='divButtons'>
                 <Button divClassName='divButton' classInputName='input' placeholder='Qual loja você deseja?' />
                 <Button divClassName='divButton' classInputName='inputBtn' type='button' value='Buscar loja' />
@@ -30,16 +31,20 @@ export const Lojas = () => {
             {data.length ? (
                 <div className="divCards">
                     {data.map((loja) => (
-                        <Card
-                            key={loja.id}
-                            divMainCard='divMainCard'
-                            img='imgLoja'
-                            h2={loja.nome}
-                            text1={`Endereço: ${loja.endereco}`}
-                            text2={`Especialidade: ${loja.especialidade}`}
-                            text3={`CNPJ: ${loja.cnpj}`}
-                        />
+                        <div className='divCardLoja'>
+                            <Card
+                                key={loja.id}
+                                divMainCard='divMainCard'
+                                img='imgLoja'
+                                h2={loja.nome}
+                                text1={`Endereço: ${loja.endereco}`}
+                                text2={`Especialidade: ${loja.especialidade}`}
+                                text3={`CNPJ: ${loja.cnpj}`}
+                            />
+                            <Link to={{ pathname: `/loja/${loja.id}` }}>Ver Loja</Link>
+                        </div>
                     ))}
+
                 </div>
             ) : (
                 <h3>AINDA NÃO EXISTEM LOJAS CADASTRADAS</h3>

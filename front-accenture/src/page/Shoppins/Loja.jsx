@@ -1,18 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useParams } from 'react-router-dom'
+import { BsCartCheckFill, BsCartPlus } from 'react-icons/bs';
+import { getItem, setItem } from '../../services/LocalStorageCarrinho';
 import { Button } from '../../components/Button';
-import { BsCartPlus,BsCartCheckFill  } from "react-icons/bs";
 import { Card } from '../../components/Card';
-import { getItem,setItem } from '../../services/LocalStorageCarrinho';
-import styles from './Home.css'
-export const Home = () => {
-    const [data, setData] = useState([]);
+
+export const Loja = () => {
+    
+    const { id } = useParams();
+    const [data, setData] = useState({});
+    const [itens, setItens] = useState([]);
     const [cart, setCart] = useState(getItem('itensCarrinho') ||[]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/produtos');
+                const response = await axios.get(`http://localhost:8080/lojas/${id}`);
+                setData(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+        };
+        fetchData();
+    }, []);
+    console.log(data)
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/produtos/');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -72,4 +90,4 @@ export const Home = () => {
             }
         </div>
     );
-};
+}

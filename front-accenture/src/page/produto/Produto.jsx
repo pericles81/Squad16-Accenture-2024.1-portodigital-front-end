@@ -31,7 +31,7 @@ export const Produto = () => {
 
     const handlePostRequest = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/produtos/cliente/21', form);
+            const response = await axios.post('http://localhost:8080/produtos/lojas/1', form);
             console.log('Response from server:', response.data);
         } catch (error) {
             console.error('Error making POST request:', error);
