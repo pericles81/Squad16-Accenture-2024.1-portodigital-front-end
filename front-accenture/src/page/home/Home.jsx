@@ -63,7 +63,7 @@ export const Home = () => {
                                     cart.some((itemCart) => itemCart.idProduto === e.idProduto) ? (<BsCartCheckFill/>) : (<BsCartPlus/>)
                                 }
                             </button>
-                            <Link to={{ pathname: `produtos/${e.idProduto}` }}>Ver Loja</Link>
+                            <Link to={{ pathname: `produtos/${e.idProduto}` }}>Ver Produto</Link>
                             </div>
                         )
                     })}

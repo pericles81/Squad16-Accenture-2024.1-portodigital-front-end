@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Card1.css'
+import { MdRemoveShoppingCart } from 'react-icons/md';
 export const Card1 = (props) => {
   return (
     <div className='divCard1'>
@@ -13,9 +14,9 @@ export const Card1 = (props) => {
 
         <div className='divContentCard1'>
 
-            <div c>
+            <div>
                 <p>{props.preco}</p>
-                <input type="button" value='delete' onClick={props.onClick} />
+                <button onClick={props.onClick}><MdRemoveShoppingCart/></button>
             </div>
             </div>
     </div>

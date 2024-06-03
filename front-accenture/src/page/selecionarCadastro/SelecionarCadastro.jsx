@@ -22,7 +22,7 @@ export const SelecionarCadastro = () => {
                         <div>
                             
                             <img src={e.src} alt="" className='imgSeleCad' />
-                            <Link to={`${e.to}`}><Button type='button' divClassName='wrap-input cu' classInputName='input' value={e.nome} ></Button></Link>
+                            <Link to={`${e.to}`}><Button type='button' divClassName='wrap-input btnSeleCad' classInputName='input' value={e.nome} ></Button></Link>
 
                         </div>)
                 })}

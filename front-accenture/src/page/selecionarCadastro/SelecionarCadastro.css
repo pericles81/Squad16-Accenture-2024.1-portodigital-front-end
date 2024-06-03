@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-around;
 }
-.cu :hover{
+.btnSeleCad :hover{
     background-color: blueviolet;
     color: aliceblue;
 }
