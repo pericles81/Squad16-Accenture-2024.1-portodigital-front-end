@@ -30,8 +30,13 @@ export const Loja = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+<<<<<<< HEAD
                 const response = await axios.get('http://localhost:8080/produtos/');
                 setItem(response.data);
+=======
+                const response = await axios.get(`http://localhost:8080/produtos/loja/${id}`);
+                setData(response.data);
+>>>>>>> 703f07cd8797bb6afbeb3b125896de23ec626ee5
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

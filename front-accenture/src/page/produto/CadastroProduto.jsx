@@ -12,7 +12,11 @@ export const CadastroProduto = () => {
         nome: "",
         preco: "",
         quantidade: "",
+<<<<<<< HEAD:front-accenture/src/page/produto/CadastroProduto.jsx
         descricao: "",
+=======
+        descricao: ""
+>>>>>>> 703f07cd8797bb6afbeb3b125896de23ec626ee5:front-accenture/src/page/produto/Produto.jsx
     })
 
     const handleChange = (e) => {
@@ -30,7 +34,8 @@ export const CadastroProduto = () => {
 
     const handlePostRequest = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/produtos/lojas/1', form);
+            const userId = localStorage.getItem('userId');
+            const response = await axios.post(`http://localhost:8080/produtos/cliente/${userId}`, form);
             console.log('Response from server:', response.data);
         } catch (error) {
             console.error('Error making POST request:', error);
@@ -101,6 +106,10 @@ export const CadastroProduto = () => {
                         onBlur={(e) => handleChange(e)}
                     ></Button>
                     <>{emptyValue && form["descricao"] === "" ? <span className='valide'>O CAMPO PRECISA SER PREENCHIDO</span> : ""}</>
+<<<<<<< HEAD:front-accenture/src/page/produto/CadastroProduto.jsx
+=======
+                    
+>>>>>>> 703f07cd8797bb6afbeb3b125896de23ec626ee5:front-accenture/src/page/produto/Produto.jsx
 
                     <Button
                         divClassName='login-form-button'
